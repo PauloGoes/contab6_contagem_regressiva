@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
+
 <title>🎓 Contagem de Aulas</title>
+
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -13,288 +16,677 @@ content="width=device-width, initial-scale=1.0">
 }
 
 body{
+
     font-family:Arial,sans-serif;
+
     background:
         radial-gradient(
             circle at top,
             #312e81,
             #0f172a 70%
         );
+
     min-height:100vh;
+
     padding:20px;
+
     color:white;
+
     overflow-x:hidden;
+
 }
+
 /* confetes */
+
 .confete{
+
     position:fixed;
+
     top:-10px;
-    width:12px;
-    height:12px;
+
+    width:10px;
+
+    height:10px;
+
     border-radius:2px;
+
     opacity:0.7;
+
     animation:cair linear infinite;
+
 }
 
 @keyframes cair{
+
     from{
+
         transform:
             translateY(-100px)
             rotate(0deg);
+
     }
+
     to{
+
         transform:
             translateY(120vh)
             rotate(720deg);
+
     }
+
 }
 
 /* container */
+
 .container{
-    max-width:950px;
+
+    max-width:1350px;
+
     margin:auto;
+
 }
+
 /* topo */
+
 .topo{
+
     text-align:center;
-    margin-bottom:30px;
+
+    margin-bottom:25px;
+
 }
 
 .topo h1{
-    font-size:42px;
-    margin-bottom:10px;
+
+    font-size:38px;
+
+    margin-bottom:8px;
+
 }
 
 .topo p{
+
     color:#cbd5e1;
+
+    font-size:14px;
+
 }
 
 /* cards principais */
+
 .grid{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:20px;
-    margin-bottom:30px;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
 }
 
 .box{
-    background: rgba(15,23,42,0.85);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius:24px;
-    padding:30px;
+
+    background:
+        rgba(15,23,42,0.85);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius:22px;
+
+    padding:20px;
+
     text-align:center;
+
     backdrop-filter:blur(10px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.35);
+
 }
 
 .box h2{
+
     color:#cbd5e1;
+
     margin-bottom:10px;
+
+    font-size:16px;
+
 }
 
 .numero{
-    font-size:64px;
+
+    font-size:48px;
+
     font-weight:bold;
+
     color:#c084fc;
+
+}
+
+/* eventos */
+
+.eventosCards{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.cardEvento{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(245,158,11,0.15),
+            rgba(168,85,247,0.15)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius:22px;
+
+    padding:18px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+
+    transition:0.2s;
+
+}
+
+.cardEvento:hover{
+
+    transform:
+        translateY(-3px);
+
+}
+
+.cardEventoData{
+
+    font-size:13px;
+
+    color:#fde68a;
+
+    margin-bottom:8px;
+
+}
+
+.cardEventoTitulo{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+
+}
+
+.cardEventoTexto{
+
+    color:#cbd5e1;
+
+    font-size:13px;
+
 }
 
 /* calendário */
+
 .lista{
-    background: rgba(15,23,42,0.85);
-    border: 1px solid rgba(255,255,255,0.08);
+
+    background:
+        rgba(15,23,42,0.85);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
     border-radius:24px;
-    padding:25px;
+
+    padding:20px;
+
     backdrop-filter:blur(10px);
+
 }
 
-.lista h3{
-    margin-bottom:20px;
-}
+.calendariosGrid{
 
-/* grid datas */
-.calendario{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:15px;
+
+    align-items:start;
+
 }
 
-/* card data */
-.dia{
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:18px;
+/* mês */
+
+.mes{
+
+    border:
+        1px solid rgba(255,255,255,0.10);
+
+    border-radius:22px;
+
+    padding:15px;
+
+    background:
+        rgba(255,255,255,0.02);
+
+    box-shadow:
+        0 0 25px rgba(0,0,0,0.15);
+
+}
+
+.nomeMes{
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+    color:#c084fc;
+
     text-align:center;
-    transition:0.25s;
+
+    font-weight:bold;
+
+}
+
+/* calendário */
+
+.calendario{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(7,1fr);
+
+    gap:6px;
+
+}
+
+/* cabeçalho */
+
+.diaHeader{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:11px;
+
+    padding:6px;
+
+}
+
+/* dias */
+
+.dia{
+
+    min-height:65px;
+
+    border-radius:14px;
+
+    padding:6px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+    transition:0.2s;
+
+    text-align:center;
+
 }
 
 .dia:hover{
-    transform: translateY(-4px) scale(1.02);
+
+    transform:
+        translateY(-2px);
+
 }
 
-/* aula futura */
+/* sem aula */
+
+.semAula{
+
+    opacity:0.15;
+
+}
+
+/* aula */
+
 .faltando{
-    border: 2px solid #a855f7;
-    box-shadow: 0 0 20px rgba(168,85,247,0.25);
+
+    border:
+        2px solid #a855f7;
+
+    box-shadow:
+        0 0 15px
+        rgba(168,85,247,0.20);
+
 }
 
 /* aula passada */
+
 .passou{
-    opacity:0.30;
+
+    opacity:0.35;
+
     text-decoration:line-through;
+
 }
 
-/* eventos especiais */
+/* evento */
+
 .eventoEspecial{
-    border: 2px solid #f59e0b;
-    background: linear-gradient(
+
+    border:
+        2px solid #f59e0b;
+
+    background:
+        linear-gradient(
             135deg,
             rgba(245,158,11,0.18),
             rgba(168,85,247,0.18)
         );
 
-    box-shadow: 0 0 25px rgba(245,158,11,0.25);
 }
 
-.diaNumero{
-    font-size:34px;
+/* último dia */
+
+.ultimoDia{
+
+    border:
+        2px solid #22c55e !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,197,94,0.25),
+            rgba(168,85,247,0.18)
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(34,197,94,0.35);
+
+    animation:
+        pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.04);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* textos */
+
+.numeroDia{
+
+    font-size:18px;
+
     font-weight:bold;
-    color:#c084fc;
-    margin-bottom:8px;
+
+    color:#fff;
+
+    margin-bottom:4px;
+
 }
 
-.diaMes{
-    font-size:14px;
+.nomeSemana{
+
+    font-size:10px;
+
     color:#cbd5e1;
-    text-transform:capitalize;
-}
-.diaSemana{
-    margin-top:10px;
-    font-size:12px;
-    color:#94a3b8;
-    background: rgba(255,255,255,0.06);
-    padding:5px;
-    border-radius:10px;
-    text-transform:capitalize;
+
 }
 
 .eventoTitulo{
-    margin-top:12px;
-    font-size:12px;
+
+    margin-top:5px;
+
+    font-size:9px;
+
     color:#fde68a;
-    line-height:1.4;
+
+    line-height:1.2;
+
 }
 
 .footer{
+
     text-align:center;
-    margin-top:25px;
+
     color:#94a3b8;
+
+    margin-top:20px;
+
+    font-size:12px;
+
 }
 
 /* celular */
-@media(max-width:600px){
-    .grid{
+
+@media(max-width:1000px){
+
+    .calendariosGrid{
+
         grid-template-columns:1fr;
+
     }
+
+}
+
+@media(max-width:700px){
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
     .topo h1{
-        font-size:30px;
+
+        font-size:28px;
+
     }
+
     .numero{
-        font-size:48px;
+
+        font-size:40px;
+
     }
-    .calendario{
-        grid-template-columns: repeat(2,1fr);
-        gap:10px;
-    }
-    .dia{
-        padding:12px;
-    }
-    .diaNumero{
-        font-size:24px;
-    }
-    .diaMes{
-        font-size:11px;
-    }
-    .diaSemana{
-        font-size:10px;
-    }
-    .eventoTitulo{
-        font-size:10px;
-    }
+
 }
 
 </style>
 </head>
+
 <body>
 
 <!-- confetes -->
+
 <div class="confete"
 style="left:5%;background:#f43f5e;animation-duration:8s;"></div>
 
 <div class="confete"
-style="left:15%;background:#22c55e;animation-duration:11s;"></div>
+style="left:20%;background:#22c55e;animation-duration:11s;"></div>
 
 <div class="confete"
-style="left:30%;background:#3b82f6;animation-duration:9s;"></div>
+style="left:35%;background:#3b82f6;animation-duration:9s;"></div>
 
 <div class="confete"
-style="left:45%;background:#eab308;animation-duration:12s;"></div>
+style="left:50%;background:#eab308;animation-duration:12s;"></div>
 
 <div class="confete"
-style="left:60%;background:#ec4899;animation-duration:10s;"></div>
+style="left:65%;background:#ec4899;animation-duration:10s;"></div>
 
 <div class="confete"
-style="left:75%;background:#06b6d4;animation-duration:13s;"></div>
+style="left:80%;background:#06b6d4;animation-duration:13s;"></div>
 
 <div class="confete"
-style="left:90%;background:#f97316;animation-duration:8s;"></div>
+style="left:92%;background:#f97316;animation-duration:8s;"></div>
 
 <div class="container">
+
     <div class="topo">
+
         <h1>
             🎓 Contagem de Aulas
         </h1>
+
         <p>
             Última reta da turma 🚀
         </p>
+
     </div>
+
+    <!-- cards -->
+
     <div class="grid">
+
         <div class="box">
+
             <h2>
                 Aulas restantes
             </h2>
+
             <div
             class="numero"
             id="aulasRestantes">
                 0
             </div>
+
         </div>
+
         <div class="box">
+
             <h2>
-               Dias até acabar
+                Dias até acabar
             </h2>
+
             <div
             class="numero"
             id="diasRestantes">
                 0
             </div>
+
         </div>
+
     </div>
+
+    <!-- eventos -->
+
+    <div class="eventosCards">
+
+        <div class="cardEvento">
+
+            <div class="cardEventoData">
+                06/07/2026
+            </div>
+
+            <div class="cardEventoTitulo">
+                🎉 Última Aula
+            </div>
+
+            <div class="cardEventoTexto">
+                Encerramento oficial das aulas
+            </div>
+
+        </div>
+
+        <div class="cardEvento">
+
+            <div class="cardEventoData">
+                19/07/2026
+            </div>
+
+            <div class="cardEventoTitulo">
+                🍖 Churrasco
+            </div>
+
+            <div class="cardEventoTexto">
+                Churrasco da turma
+            </div>
+
+        </div>
+
+        <div class="cardEvento">
+
+            <div class="cardEventoData">
+                19/08/2026
+            </div>
+
+            <div class="cardEventoTitulo">
+                🎓 Formatura
+            </div>
+
+            <div class="cardEventoTexto">
+                Grande dia da formatura
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- calendário -->
+
     <div class="lista">
-        <h3>
-           📅 Calendário
-        </h3>
+
         <div
-        class="calendario"
-        id="listaAulas"></div>
+        class="calendariosGrid"
+        id="calendarios"></div>
+
     </div>
+
     <div class="footer">
+
         Atualiza automaticamente
         conforme a data atual
+
     </div>
+
 </div>
+
 <script>
+
 const aulas = [
+
     '2026-06-18',
     '2026-06-22',
     '2026-06-23',
@@ -305,114 +697,275 @@ const aulas = [
     '2026-07-02',
     '2026-07-03',
     '2026-07-06'
+
 ];
 
-const eventos = [
-    {
-        data:'2026-07-19',
-        titulo:'🍖 Churrasco da turma. BORA! BORA!'
-    },
-    {
-        data:'2026-08-19',
-        titulo:'🎓 Formatura. Agora Vai ;)'
-    }
-];
+const eventos = {
 
-function nomeDia(data){
-    return data
-        .toLocaleDateString(
-            'pt-BR',
-            { weekday:'long' }
-        )
-        .replace('-feira','');
-}
+    '2026-07-06':
+        '🎉 Final',
+
+    '2026-07-19':
+        '🍖 Churrasco',
+
+    '2026-08-19':
+        '🎓 Formatura'
+
+};
 
 const hoje = new Date();
+
 hoje.setHours(0,0,0,0);
-const lista =
-    document.getElementById(
-        'listaAulas'
-    );
+
+const meses = [
+
+    {
+        nome:'Junho 2026',
+        mes:5,
+        dias:30
+    },
+
+    {
+        nome:'Julho 2026',
+        mes:6,
+        dias:31
+    },
+
+    {
+        nome:'Agosto 2026',
+        mes:7,
+        dias:31
+    }
+
+];
+
+const nomesSemana = [
+    'Dom',
+    'Seg',
+    'Ter',
+    'Qua',
+    'Qui',
+    'Sex',
+    'Sáb'
+];
+
 let aulasRestantes = 0;
 
-/* aulas */
-aulas.forEach(dataStr => {
-    const data = new Date(dataStr + 'T00:00:00');
-    const card = document.createElement('div');
-    card.classList.add('dia');
-    const dia = data.getDate();
-    const mes = data.toLocaleDateString('pt-BR', { month:'short' });
-    const semana = nomeDia(data);
-    card.innerHTML = `
-        <div class="diaNumero">
-            ${dia}
-        </div>
-        <div class="diaMes">
-            ${mes}
-        </div>
-        <div class="diaSemana">
-            ${semana}
-        </div>
-    `;
-
-    if(data >= hoje){
-        aulasRestantes++;
-        card.classList.add('faltando');
-    }else{
-        card.classList.add('passou');
-    }
-    lista.appendChild(card);
-});
-
-/* eventos especiais */
-eventos.forEach(evento => {
-    const data = new Date(evento.data + 'T00:00:00');
-    const card = document.createElement('div');
-    card.classList.add(
-        'dia',
-        'eventoEspecial'
+const container =
+    document.getElementById(
+        'calendarios'
     );
 
-    const dia = data.getDate();
-    const mes = data.toLocaleDateString('pt-BR', { month:'short' });
-    const semana = nomeDia(data);
+function criarCalendario(infoMes){
 
-    card.innerHTML = `
-        <div class="diaNumero">
-            ${dia}
-        </div>
-        <div class="diaMes">
-            ${mes}
-        </div>
-        <div class="diaSemana">
-            ${semana}
-        </div>
-        <div class="eventoTitulo">
-            ${evento.titulo}
+    const wrapper =
+        document.createElement('div');
+
+    wrapper.classList.add('mes');
+
+    wrapper.innerHTML = `
+        <div class="nomeMes">
+            ${infoMes.nome}
         </div>
     `;
-    lista.appendChild(card);
-});
 
-/* total aulas */
-document.getElementById('aulasRestantes').innerText = aulasRestantes;
+    const calendario =
+        document.createElement('div');
 
-/* dias até acabar */
-const ultimaAula = new Date('2026-07-06T00:00:00');
-const diferenca = ultimaAula.getTime()- hoje.getTime();
+    calendario.classList.add(
+        'calendario'
+    );
 
-let diasRestantes = Math.floor(
+    nomesSemana.forEach(nome => {
+
+        const header =
+            document.createElement('div');
+
+        header.classList.add(
+            'diaHeader'
+        );
+
+        header.innerText = nome;
+
+        calendario.appendChild(
+            header
+        );
+
+    });
+
+    const primeiroDia =
+        new Date(
+            2026,
+            infoMes.mes,
+            1
+        ).getDay();
+
+    for(let i=0;i<primeiroDia;i++){
+
+        const vazio =
+            document.createElement('div');
+
+        calendario.appendChild(vazio);
+
+    }
+
+    for(let dia=1;
+        dia<=infoMes.dias;
+        dia++){
+
+        const data =
+            new Date(
+                2026,
+                infoMes.mes,
+                dia
+            );
+
+        const yyyy =
+            data.getFullYear();
+
+        const mm =
+            String(
+                data.getMonth()+1
+            ).padStart(2,'0');
+
+        const dd =
+            String(dia)
+            .padStart(2,'0');
+
+        const dataStr =
+            `${yyyy}-${mm}-${dd}`;
+
+        const card =
+            document.createElement('div');
+
+        card.classList.add('dia');
+
+        const ehAula =
+            aulas.includes(dataStr);
+
+        const evento =
+            eventos[dataStr];
+
+        if(!ehAula && !evento){
+
+            card.classList.add(
+                'semAula'
+            );
+
+        }
+
+        if(ehAula){
+
+            if(data >= hoje){
+
+                aulasRestantes++;
+
+                card.classList.add(
+                    'faltando'
+                );
+
+            }else{
+
+                card.classList.add(
+                    'passou'
+                );
+
+            }
+
+        }
+
+        if(evento){
+
+            card.classList.add(
+                'eventoEspecial'
+            );
+
+        }
+
+        if(dataStr === '2026-07-06'){
+
+            card.classList.add(
+                'ultimoDia'
+            );
+
+        }
+
+        const nomeSemana =
+            data
+            .toLocaleDateString(
+                'pt-BR',
+                { weekday:'short' }
+            )
+            .replace('.','');
+
+        card.innerHTML = `
+
+            <div class="numeroDia">
+                ${dia}
+            </div>
+
+            <div class="nomeSemana">
+                ${nomeSemana}
+            </div>
+
+            ${
+                evento
+                ?
+                `<div class="eventoTitulo">
+                    ${evento}
+                </div>`
+                :
+                ''
+            }
+
+        `;
+
+        calendario.appendChild(card);
+
+    }
+
+    wrapper.appendChild(
+        calendario
+    );
+
+    container.appendChild(
+        wrapper
+    );
+
+}
+
+meses.forEach(criarCalendario);
+
+document.getElementById(
+    'aulasRestantes'
+).innerText = aulasRestantes;
+
+const ultimaAula =
+    new Date(
+        '2026-07-06T00:00:00'
+    );
+
+const diferenca =
+    ultimaAula.getTime()
+    - hoje.getTime();
+
+let diasRestantes =
+    Math.floor(
         diferenca /
         (1000 * 60 * 60 * 24)
     ) + 1;
 
 if(diasRestantes < 0){
+
     diasRestantes = 0;
+
 }
 
 document.getElementById(
     'diasRestantes'
 ).innerText = diasRestantes;
+
 </script>
+
 </body>
 </html>
